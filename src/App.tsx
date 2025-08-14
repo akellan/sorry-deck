@@ -6,30 +6,28 @@ import { useState } from "react";
 const deck = new Deck();
 
 function App() {
-  const [currentCardId, setCurrentCardId] = useState(deck.current);
+  const [currentCardId, setCurrentCardId] = useState<{ id: string }>({
+    id: deck.current,
+  });
 
   return (
-    <div className="p-5 flex min-h-svh flex-col items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-      <div
-        onClick={() => {
-          deck.forward();
-          setCurrentCardId(deck.current);
-        }}
-      >
+    <div className="select-none p-5 gap-10 flex min-h-svh flex-col items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+      <div>
         <Card
-          className="max-h-[75vh]"
-          onDragEnd={() => {
+          onClick={() => {
             deck.forward();
-            setCurrentCardId(deck.current);
+            setCurrentCardId({ id: deck.current });
           }}
-          id={currentCardId}
+          className="h-[70vh] shadow-xl"
+          idObj={currentCardId}
         />
       </div>
-      <div className="p-5 h-20">
+      <div>
         <Button
+          className="select-none"
           onClick={() => {
             deck.back();
-            setCurrentCardId(deck.current);
+            setCurrentCardId(currentCardId);
           }}
         >
           Back
