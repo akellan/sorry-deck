@@ -41,7 +41,6 @@ export class Deck {
   }
 
   get current(): string {
-    console.log(this.cards, this.currentIndex);
     return this.cards[this.currentIndex];
   }
 
