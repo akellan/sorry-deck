@@ -6,7 +6,7 @@
   "homepage": "https://akellan.github.io/sorry-deck",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build --base=/sorry-deck/",
     "lint": "eslint .",
     "preview": "vite preview"
   },
