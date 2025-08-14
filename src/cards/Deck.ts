@@ -1,4 +1,4 @@
-const ALL_CARDS = {
+export const ALL_CARDS = {
   One: "1" as const,
   Two: "2" as const,
   Three: "3" as const,
