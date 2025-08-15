@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { ALL_CARDS } from "../Deck";
 
 interface CardProps {
   idObj: { id: string };
@@ -14,6 +15,13 @@ export const Card = function Card({
   const isRotated = useRef(false);
 
   isRotated.current = !isRotated.current;
+
+  useEffect(() => {
+    Object.values(ALL_CARDS).forEach((cardId) => {
+      const img = new Image();
+      img.src = `cards/${cardId}.png`;
+    });
+  }, []);
 
   return (
     <motion.img
