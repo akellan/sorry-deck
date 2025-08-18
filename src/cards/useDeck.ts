@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { shuffle } from "./shuffle";
+import { shuffle } from "../lib/shuffle";
 
 export const ALL_CARDS = {
   One: "1" as const,
@@ -27,9 +27,7 @@ function create(): Deck {
 
   cards.push(ALL_CARDS["Sorry"]);
 
-  shuffle(cards);
-
-  return cards;
+  return shuffle(cards);
 }
 
 export function useDeck() {
