@@ -9,16 +9,7 @@ function App() {
     <div className="select-none p-5 gap-10 flex min-h-svh flex-col items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
       <div>
         <Card
-          onClick={(e) => {
-            e.preventDefault();
-            forward();
-            console.log("click");
-          }}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            forward();
-            console.log("touch");
-          }}
+          onPointerUp={() => forward()}
           className="h-[70vh] shadow-xl"
           idObj={{ id: currentCard }}
         />
